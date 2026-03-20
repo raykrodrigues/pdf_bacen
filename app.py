@@ -26,14 +26,13 @@ def processar_pdf(caminho_pdf):
     tarifas = re.findall(r"TARIFA\s+(\d{1,3}(?:\.\d{3})*,\d{2})", texto)
     taxas = re.findall(r"TAXA\s+(\d{1,3}(?:\.\d{3})*,\d{2})", texto)
     totais = re.findall(r"TOTAL\s+(\d{1,3}(?:\.\d{3})*,\d{2})", texto)
-    paxs = re.findall(r"Pax:\s*(.*?)(?:\s*/\s*CCA|\n)", texto, re.IGNORECASE)
-
+    paxs = re.findall(r"Pax:\s*(.*?)\s*/\s*CCA", texto, re.IGNORECASE)
     linhas = []
     for i in range(len(totais)):
         tarifa = tarifas[i] if i < len(tarifas) else "0,00"
         taxa = taxas[i] if i < len(taxas) else "0,00"
         total = totais[i]
-        passageiro = paxs[i].strip() if i < len(paxs) else "SEM_PAX"
+        passageiro = paxs[i].strip() if i < len(paxs) else "SEM PAX"
 
         linha = (
             f"2026/{str(i+1).zfill(6)}-01-01;"
