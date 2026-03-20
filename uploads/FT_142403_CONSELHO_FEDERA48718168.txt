@@ -1,0 +1,2 @@
+Requisicoes;Tarifa,Taxa;Embarque;Multa;Total;Cia Aérea;Passageiro
+2026/000001-01-01;839,99,0,00;0,00;0,00;784,38;LATAM AIRLINES BRASIL;PEREIRA
